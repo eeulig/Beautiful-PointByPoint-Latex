@@ -1,0 +1,110 @@
+% A LaTeX package and style for writing beautiful point-by-point responses
+% 
+% Author: Elias Eulig, 2024
+%
+% License: MIT
+%
+
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{pbyp}
+  [2024/06/18 v0.01 Style to use for writing a point-by-point response]
+
+
+% Load packages
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{amsthm}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{xspace}
+\RequirePackage{xstring}
+\RequirePackage[hidelinks]{hyperref}
+\RequirePackage[sort]{cleveref}
+
+\RequirePackage{kvoptions}
+\SetupKeyvalOptions{family=pbyp,prefix=pbyp@}
+\DeclareStringOption[Mulberry]{revAEcol}
+\DeclareStringOption[NavyBlue]{revAcol}
+\DeclareStringOption[YellowOrange]{revBcol}
+\DeclareStringOption[ForestGreen]{revCcol}
+\DeclareStringOption[WildStrawberry]{revDcol}
+\DeclareStringOption[Bittersweet]{revEcol}
+\DeclareStringOption[Plum]{revFcol}
+
+\ProcessKeyvalOptions*
+
+% Setup Reviewer commands
+\newcommand{\revAE}{\textcolor{\pbyp@revAEcol}{\textbf{AE}}\xspace}
+\newcommand{\revA}{\textcolor{\pbyp@revAcol}{\textbf{R1}}\xspace}
+\newcommand{\revB}{\textcolor{\pbyp@revBcol}{\textbf{R2}}\xspace}
+\newcommand{\revC}{\textcolor{\pbyp@revCcol}{\textbf{R3}}\xspace}
+\newcommand{\revD}{\textcolor{\pbyp@revDcol}{\textbf{R4}}\xspace}
+\newcommand{\revE}{\textcolor{\pbyp@revEcol}{\textbf{R5}}\xspace}
+\newcommand{\revF}{\textcolor{\pbyp@revFcol}{\textbf{R6}}\xspace}
+\newcommand{\rev}[1]{%
+    \IfEqCase{#1}{%
+        {1}{\revA}%
+        {2}{\revB}%
+        {3}{\revC}%
+        {4}{\revD}%
+        {5}{\revE}%
+        {6}{\revF}%
+    }[\PackageError{ref}{Undefined option to rev: #1}{}]%
+}%
+
+% Setup line number placeholder
+\newcommand{\addlines}{\textcolor{red}{L.\ XXX}\xspace}
+
+% Define theorem-like environments for questions and responses
+\newtheoremstyle{question}
+  {2\topsep}   % Space above
+  {\topsep}   % Space below
+  {}          % Body font
+  {}          % Indent amount
+  {\bfseries} % Font
+  {}         % Punctuation after theorem head
+  {.5em}      % Space after theorem head
+  {}          % Head spec
+  
+\newtheoremstyle{response}
+  {-0.25em}   % Space above
+  {\topsep}   % Space below
+  {}          % Body font
+  {}          % Indent amount
+  {\bfseries} % Theorem head font
+  {}         % Punctuation after theorem head
+  {.5em}      % Space after theorem head
+  {}          % Head spec
+
+% Define question environment
+\theoremstyle{question}
+\newtheorem{questioninner}{}[section]
+\newenvironment{question}[1]{%
+  \renewcommand\thequestioninner{\textbf{#1}}%
+  \questioninner
+}{\endquestioninner}
+
+% Define response environment
+\theoremstyle{response}
+\newtheorem*{response}{\textbf{Response}}
+
+% Define commands for reviewers
+\newcommand{\QuestionRevAE}[1]{\textbf{\textcolor{\pbyp@revAEcol}{AE.#1}}}
+\newcommand{\QuestionRevA}[1]{\textbf{\textcolor{\pbyp@revAcol}{R1.#1}}}
+\newcommand{\QuestionRevB}[1]{\textbf{\textcolor{\pbyp@revBcol}{R2.#1}}}
+\newcommand{\QuestionRevC}[1]{\textbf{\textcolor{\pbyp@revCcol}{R3.#1}}}
+\newcommand{\QuestionRevD}[1]{\textbf{\textcolor{\pbyp@revDcol}{R4.#1}}}
+\newcommand{\QuestionRevE}[1]{\textbf{\textcolor{\pbyp@revEcol}{R5.#1}}}
+\newcommand{\QuestionRevF}[1]{\textbf{\textcolor{\pbyp@revFcol}{R6.#1}}}
+
+% Define cref environment for questions
+\crefname{questioninner}{}{}
+
+% Revised manuscript text box
+\definecolor{textboxcolor}{rgb}{0.95, 0.95, 0.95}
+\newtcolorbox{revised}{colback=textboxcolor, grow to right by=-5mm, grow to 
+	left by=-5mm, boxrule=0pt, boxsep=0pt, breakable, before skip=10pt}
+
+
+\endinput
+%%
+%% End of file `pbyp.sty'.
