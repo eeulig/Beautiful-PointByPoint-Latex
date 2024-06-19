@@ -10,7 +10,7 @@ An example document using the package is provided as `main.tex` and on [Overleaf
 ### Load the Package
 Load the package using `\usepackage{pbyp}` with `pbyp.sty` in the same directory as your `main.tex`.
 
-The package accepts the optional keyword arguments `revAEcol, revAcol, revBcol, ..., revFcol` to define different colors for the reviewers. The colors must be one of the standard colors or dvipsnames of `xcolor`. For an overview of available colors see [here](https://www.namsu.de/Extra/pakete/Xcolor.html). E.g., to color the associate editor in violet and the first reviewer in green use
+The package accepts the optional keyword arguments `revAEcol, revAcol, revBcol, ..., revFcol` to define different colors for the reviewers. The colors must be one of the standard colors or dvipsnames of `xcolor`. For an overview of available colors see [here](https://www.namsu.de/Extra/pakete/Xcolor.html). E.g., to color the associate editor in red and the first reviewer in green use
 ```
 \usepackage[revAEcol=Brickred,revAcol=ForestGreen]{pbyp}
 ```
