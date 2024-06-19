@@ -5,7 +5,7 @@ A Package and template for writing beautiful and nicely structured point-by-poin
 <img src="assets/main.png" alt="Example Document" width="600"/>
 
 ### Example Document
-An example document using the package is provided as `main.tex`. and on [Overleaf](https://www.overleaf.com/read/pspvwrsdytzf#92f923). This should be a great starting point for your point-by-point response!
+An example document using the package is provided as `main.tex` and on [Overleaf](https://www.overleaf.com/read/pspvwrsdytzf#92f923). This should be a great starting point for your point-by-point response!
 
 ### Load the Package
 Load the package using `\usepackage{pbyp}` with `pbyp.sty` in the same directory as your `main.tex`.
