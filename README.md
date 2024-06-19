@@ -2,13 +2,15 @@
 
 A Package and template for writing beautiful and nicely structured point-by-point responses.
 
-<img src="assets/main.png" alt="Example Document" width="500"/>
+<img src="assets/main.png" alt="Example Document" width="600"/>
 
 ### Example Document
-An example document using the package is provided as `main.tex`. This should be a great starting point for your point-by-point response!
+An example document using the package is provided as `main.tex`. and on [Overleaf](https://www.overleaf.com/read/pspvwrsdytzf#92f923). This should be a great starting point for your point-by-point response!
 
 ### Load the Package
-Load the package via `\usepackage{pbyp}` if the file `pbyp.sty` is in the root path. The package accepts the optional keyword arguments `revAEcol, revAcol, revBcol, ..., revFcol` to define different colors for the reviewers. The colors must be one of the standard colors or dvipsnames of `xcolor`. For an overview of available colors see [here](https://www.namsu.de/Extra/pakete/Xcolor.html). E.g., to color the associate editor in violet and the first reviewer in green use
+Load the package using `\usepackage{pbyp}` with `pbyp.sty` in the same directory as your `main.tex`.
+
+The package accepts the optional keyword arguments `revAEcol, revAcol, revBcol, ..., revFcol` to define different colors for the reviewers. The colors must be one of the standard colors or dvipsnames of `xcolor`. For an overview of available colors see [here](https://www.namsu.de/Extra/pakete/Xcolor.html). E.g., to color the associate editor in violet and the first reviewer in green use
 ```
 \usepackage[revAEcol=Brickred,revAcol=ForestGreen]{pbyp}
 ```
@@ -68,7 +70,7 @@ See our response to \cref{R1:Dataset,R2:Q1}
 <img src="assets/example3.png" alt="Example 3" width="400"/>
 
 #### Textboxes
-Sometimes you want to copy some text from your revised manuscript to the point-by-point response (to save the busy reviewers some time). This can be done using the `revised` environment:
+Sometimes you want to copy some text from your revised manuscript to the point-by-point response to save the busy reviewers some time. This can be done using the `revised` environment:
 ```
 \begin{question}{\QuestionRevA{Q1}}
 Please add this in your manuscript
